@@ -30,4 +30,4 @@ Fairbairn, D.J., Elliott, S.M., Kiesling, R.L., Schoenfuss, H.L., Ferrey, M.L., 
 spatiotemporal patterns and removal by iron-enhanced sand filters (IESFs). Water Res. 145, 332–345. https://doi.org/10.1016/j.watres.2018.08.020 \
 Fuka, D. T., Walter, M. T., Archibald, J. A., Steenhuis, T. S., Easton, Z. M. (2018). A Community Modeling Foundation for Eco-Hydrology. R package version 0.4.12 \
 Ashraf, M.A. (2017). Persistent organic pollutants (POPs): a global issue, a global challenge. Environ Sci Pollut Res 24, 4223–4227.
-https://doi.org/10.1007/s11356-015-5225-9 \
+https://doi.org/10.1007/s11356-015-5225-9 
