@@ -1,3 +1,5 @@
+#Correlation Analysis
+
 The spearman rank correlation coefficient (rho) was used to analyze monotonicity of observed changes and quantify similarity in CEC occurrence patterns. Spearman rank 
 correlation was chosen since it does not require the relationship between variables to be linear, as temporal CEC magnitude changes are often non-linear. First, we 
 calculated spearman rank correlation coefficients among the most commonly detected compounds (detection frequency > 45%) to determine co-occurrence patterns. For this 
