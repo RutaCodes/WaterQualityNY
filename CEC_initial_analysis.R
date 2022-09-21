@@ -6,7 +6,7 @@
 library(dplyr)
 
 #Uploading data 
-CEC_conc_not_aver = read.csv(file="CEC_for_aver_calc2.csv",sep=",",header=T) 
+CEC_conc_not_aver = read.csv(file="CEC_info.csv",sep=",",header=T) 
 #This dataset contains sampling site names, sample dates, and duplicate compound concentrations.
 #Each sample was analyzed twice producing two sample estimates. 
 
@@ -184,100 +184,3 @@ CV_galaxolidone = round(Site_highestCEC_galaxolidone[,3]/Site_highestCEC_galaxol
 Site_highestCEC_galaxolidone2 = data.frame(Site_highestCEC_galaxolidone,CV_galaxolidone)
 colnames(Site_highestCEC_galaxolidone2) = c("Site","Aver.Conc","St.Dev.","CV")
 
-
-
-
-
-#------------------
-#Correlation
-library(corrplot) #corrplot plot function
-library(Hmisc) #import rcorr function
-#Correlation between samples
-CEC_aver_conc_trasf=t(CEC_detected_aver)
-rcor_CEC_samp_spear=rcorr(as.matrix(CEC_aver_conc_trasf),type = c("spearman"))
-corrplot(rcor_CEC_samp_spear$r)
-
-#Correlation between compounds
-#Keeping only 7 characters in each CEC name
-colnames(CEC_detected_aver) = substring(colnames(CEC_detected_aver),1,7)
-rcor_CEC_aver_conc_spear=rcorr(as.matrix(CEC_detected_aver),type = c("spearman")) 
-corrplot(rcor_CEC_aver_conc_spear$r)
-#Not enough data
-
-#To do further analysis and explore how different environmental parameters affect concentrations, compounds that occured 
-#in at least 45% of the smaples were chosen
-#Finding compounds that have detection frequency > 45 
-Which_high = which(Det_freq>45)
-Which_comp_high = colnames(CEC_detected_aver)[Which_high]
-#Most frequently detected compound info
-CEC_type_high = CEC_use_info[Which_high,]
-
-#Arrange by detection frequency within each CEC type
-CEC_type_high_ord = CEC_type_high %>% group_by(Type) %>% arrange(Type,desc(Detec.Freq.))
-
-
-Aver_high = CEC_detected_aver[,Which_high]
-#Keeping only 7 characters in each CEC name
-colnames(Aver_high) = substring(colnames(Aver_high),1,7)
-#Correlation between frequently occuring compounds
-rcor_CEC_high_df_spear=rcorr(as.matrix(Aver_high),type = c("spearman")) 
-corrplot(rcor_CEC_high_df_spear$r)
-
-#If using 'hclust', corrplot() can draw rectangles around the plot of correlation matrix based on the 
-#results of hierarchical clustering
-corrplot(rcor_CEC_high_df_spear$r, order = 'hclust', addrect = 2)
-
-#-----------------
-#Create a matrix similar to correlation matrix that shows how many minor compouds match
-#i.e. how many commmon compounds were detected among sites
-Nr_all_match=matrix(0,90,90)
-#Counting number of common compounds (total)
-for (a in seq(1:89)){
-  for (i in seq(a+1,90)){
-    count=0
-    for (j in seq(3,81)) {
-      if (is.na(CEC_aver[a,j]) || is.na(CEC_aver[i,j])){}
-      else{count=count+1}
-    } 
-    Nr_all_match[a,i]=count
-    Nr_all_match[i,a]=count #mirror matrix
-  }
-}
-Nr_all_match_diag_rem=Nr_all_match
-diag(Nr_all_match_diag_rem)='NA'
-
-
-
-
-
-
-
-
-#-----------------------
-#### PARKING LOT
-
-#Creating data frame combining sample site, sample date, and average (from running analysis twice) concentrations
-CEC_aver=data.frame(CEC_conc_not_aver[,1:2],CEC_detected_aver)
-colnames(CEC_aver)=c("Site","Date",CEC_detected_names)
-
-#Calculate detection frequency for each compound
-Det_freq=c(NA,NA) #adding to NAs in front for site name and date columns, to match CEC_aver dimensions
-for (i in seq(from=3,to=dim(CEC_aver)[2])){
-  #detection frequency=number of times compound was detected/total number of samples*100
-  Det_freq[i]=length(which(!is.na(CEC_aver[,i])))/dim(CEC_aver)[1]*100
-}
-
-#Nr_per_sampl = length(CEC_detected_names) - length(which((apply(CEC_aver[,seq(from=3,to=length(CEC_aver))],MARGIN=2,FUN=is.na),MARGIN=1,FUN=sum)
-Nr_per_sampl = length(CEC_detected_names) - length(which(apply(CEC_aver[,seq(from=3,to=length(CEC_aver))],MARGIN=2,FUN=is.na)))
-
-length(which(apply(CEC_aver[,seq(from=3,to=length(CEC_aver))],MARGIN=2,FUN=is.na)))
-#Calculate cumulative concentrations in each sample
-Cum_conc = apply(CEC_aver[,seq(from=3,to=length(CEC_aver))],MARGIN=1,FUN=sum,na.rm=T)
-
-
-
-#To do further analysis and explore how different environmental parameters affect concentrations, compounds that occured 
-#in at least 45% of the smaples were chosen
-#Finding compounds that have detection frequency > 45 
-Which_high = which(Det_freq>45)
-Which_comp_high = colnames(CEC_aver)[Which_high]
