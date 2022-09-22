@@ -184,3 +184,7 @@ Site_highestCEC_galaxolidone = Site_highestCEC_gr %>% summarise(`Aver. Conc.` = 
 CV_galaxolidone = round(Site_highestCEC_galaxolidone[,3]/Site_highestCEC_galaxolidone[,2]*100,digits=2)
 Site_highestCEC_galaxolidone2 = data.frame(Site_highestCEC_galaxolidone,CV_galaxolidone)
 colnames(Site_highestCEC_galaxolidone2) = c("Site","Aver.Conc","St.Dev.","CV")
+
+#Saving data
+write.table(CEC_aver,file="CEC_aver_dataset.csv",sep=",",row.names=F,col.names=T,append=T)
+write.table(CEC_use_info,file="CEC_use_info_dataset.csv",sep=",",row.names=F,col.names=T,append=T)
