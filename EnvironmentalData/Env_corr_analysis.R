@@ -83,28 +83,3 @@ corrplot(rcor_CEC_sites_DF_spear$r,tl.col = 'black')
 
 #Big difference
 
-
-
-
-
-
-
-Site_aver_DF = data.frame(WS_names,Site_aver)
-colnames(Site_aver_DF) = colnames(CEC_aver)[-2] # no need for dates column
-
-Site_aver[,1] = WS_names #make sure this does not change matrix type to character
-
-
-
-
-
-
-#Correlation between sites
-#Order watersheds
-Tot_CEC_nr_order_org=c(18,18,18,18,15,15,15,15,2,2,2,2,6,6,6,6,16,16,16,16,1,1,1,1,5,5,5,5,3,3,3,3,19,19,19,19,19,19,
-                       10,10,10,10,17,17,17,17,9,9,9,9,14,14,14,14,11,11,11,11,11,11,11,13,13,13,13,8,8,8,8,
-                       12,12,12,12,20,20,20,20,20,20,20,20,20,7,7,7,7,4,4,4,4)
-cor_mat_spear_sites=cor(t(CEC_aver_conc[,3:19]),use="complete.obs",method = c("spearman"))
-corrplot(cor_mat_spear_sites) #gives non-normalized correlation values
-
-
