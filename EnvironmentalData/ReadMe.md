@@ -1,3 +1,7 @@
+*Env_corr_analysis.R* - code that analyzes correlation patterns between different environmental variables and CEC concentrations. 
+*Env_data_analysis.R* - code that processes environemntal variables and calculates different averages to approximate immediate and longer term climate conditions, as
+CECs remain in the system for multiple days.
+
 # Environmental Data
 
 We used hydrological observations to (1) characterize similarities and differences in hydrologic functioning across study sites and (2) to evaluate instantaneous and 
