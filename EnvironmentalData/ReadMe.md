@@ -20,7 +20,8 @@ calculated to reflect the hydrologic conditions prior to sampling event.
 We correlated each of these hydrologic variables to CEC concentrations of the most commonly detected compounds to identify which environmental variables may empirically 
 explain temporal CEC concentration changes.  The goal of this exercise was to better understand the impact hydroclimate has on CEC dynamics in surface waters. 
 Relationships were quantified with the spearman rank correlation coefficient.
-
+ 
+\
 References:\
 Thornton, P.E., Running, S.W., White, M.A. 1997. Generating surfaces of daily meteorological variables over large regions of complex terrain. Journal of Hydrology 190: 
 214 - 251. https://doi.org/10.1016/S0022-1694(96)03128-9 \
