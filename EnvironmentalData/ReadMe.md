@@ -1,7 +1,7 @@
 *Env_corr_analysis.R* - code that analyzes correlation patterns between different environmental variables and CEC concentrations. 
 *Env_data_analysis.R* - code that processes environemntal variables and calculates different averages to approximate immediate and longer term climate conditions, as
-CECs remain in the system for multiple days.
-*CEC_aver_dataset.csv* - contaminant concentration values (will be added after this work is published)
+CECs remain in the system for multiple days. \
+*CEC_aver_dataset.csv* - contaminant concentration values (will be added after this work is published).
 
 # Environmental Data
 
