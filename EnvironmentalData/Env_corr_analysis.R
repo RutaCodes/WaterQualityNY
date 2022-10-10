@@ -76,6 +76,9 @@ CEC_aver[41:42,1] = CEC_aver[43,1] #Fixing dual names for Ninemile creek Marieta
 CEC_aver[48:49,1] = CEC_aver[50,1] #Fixing misspelling in Oatka
 CEC_aver[25:26,1] = CEC_aver[27,1] #Fixing misspelling in Ganargua
 
+#Update CEC_aver variable -  save with corrected site names
+write.table(CEC_aver,file="CEC_aver_dataset.csv",sep=",",row.names=F,col.names=T,append=T)
+
 WS_names = as.character(unique(CEC_aver$Site))
 Site_aver = matrix(NA, length(WS_names),dim(CEC_aver)[2]-2) #no need for dates
 #calculating average concentration of each compound
