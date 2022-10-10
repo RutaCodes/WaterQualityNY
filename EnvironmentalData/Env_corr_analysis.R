@@ -19,7 +19,7 @@ colnames(CEC_use_info)[3] = 'Det.Freq.'
 colnames(CEC_use_info)
 
 #-------------
-###Preparing CEC data
+### Preparing CEC data
 
 #Have row names as sites - otherwise in corrplot labels will just be numbers; Remove dates
 CEC_aver_comp = as.matrix(CEC_aver[,3:dim(CEC_aver)[2]])
@@ -39,7 +39,7 @@ Which_comp_high = CEC_use_info$Name[Which_high]
 Conc_high = CEC_aver_comp[,Which_high]
 
 #---------------
-###Correlations between environmental variables and compound concentrations 
+### Correlations between environmental variables and compound concentrations 
 
 #gives correlation between matrix itself and other variable (interested only in upper right quadrant)
 rcor_vals_clim=rcorr(as.matrix(cbind(Conc_high,Climate_var[,3:14])))
@@ -78,8 +78,6 @@ CEC_aver[25:26,1] = CEC_aver[27,1] #Fixing misspelling in Ganargua
 
 WS_names = as.character(unique(CEC_aver$Site))
 Site_aver = matrix(NA, length(WS_names),dim(CEC_aver)[2]-2) #no need for dates
-#colnames(Site_aver) = colnames(CEC_aver)
-#Site_aver[,1] = WS_names #make sure this does not change matrix type to character
 #calculating average concentration of each compound
 for (i in seq(from=1,to=length(WS_names))){
   rows = which(CEC_aver$Site == WS_names[i])
@@ -102,32 +100,5 @@ corrplot(rcor_CEC_sites_DF_spear$r,tl.col = 'black')
 #As correlation values among sites are similar, adjust color scale for better visualization
 corrplot(rcor_CEC_sites_DF_spear$r,tl.col = 'black',is.corr = TRUE,col.lim = c(0,1))
 
-
 #Big difference in results. Results from correlation analysis using 0s instead of NA values are more realistic, as 
 #NA indicates that compound was not present in the sample (or at concentrations that were not detectable) 
-
-
-
-
-
-
-
-Site_aver_DF = data.frame(WS_names,Site_aver)
-colnames(Site_aver_DF) = colnames(CEC_aver)[-2] # no need for dates column
-
-Site_aver[,1] = WS_names #make sure this does not change matrix type to character
-
-
-
-
-
-
-#Correlation between sites
-#Order watersheds
-Tot_CEC_nr_order_org=c(18,18,18,18,15,15,15,15,2,2,2,2,6,6,6,6,16,16,16,16,1,1,1,1,5,5,5,5,3,3,3,3,19,19,19,19,19,19,
-                       10,10,10,10,17,17,17,17,9,9,9,9,14,14,14,14,11,11,11,11,11,11,11,13,13,13,13,8,8,8,8,
-                       12,12,12,12,20,20,20,20,20,20,20,20,20,7,7,7,7,4,4,4,4)
-cor_mat_spear_sites=cor(t(CEC_aver_conc[,3:19]),use="complete.obs",method = c("spearman"))
-corrplot(cor_mat_spear_sites) #gives non-normalized correlation values
-
-
