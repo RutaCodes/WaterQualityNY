@@ -146,19 +146,5 @@ for (i in seq(1,4)){
 }
 
 #Saving calculated averages as csv file
-write.table(Clim_var,file="CEC_clim_aver.csv",sep=",",row.names=F,col.names=T,append=T)
-
-
-#From stackoverflow about converting from list to numeric:
-#DF[4, ] gives a one row data frame which is a list, while matrix is an atomic vector which can hold only 
-#one data type. You need to unlist the data frame row and convert it to an atomic vector before assigning it to the matrix
-#A[,1] = unlist(DF[4,])
-
-#Converting data frame to numeric matrix, so that matrix could be used with 'cor' function as it requires numeric matrix
-Clim_var_num = as.matrix(sapply(Clim_var[,3:13],as.numeric))
-
-#Checking correlation results, as 4,7,14 day Q averages are slightly different than in saved Climate_var.csv
-cor_mat_clim_pair_c = cor(Conc_high,Clim_var_num,use="pairwise.complete.obs")
-corrplot(cor_mat_clim_pair_c,tl.col = 'black')
-corrplot(cor_mat_clim_pair_c,tl.col = 'black',is.corr = FALSE,col.lim = c(-0.5,0.5))
+write.table(Clim_var,file="Climate_var.csv",sep=",",row.names=F,col.names=T,append=T)
 
