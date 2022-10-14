@@ -1,3 +1,12 @@
+*Land_cov_distrib.R* - calculates land cover percentage distributions at different distances from sampling locationthat is later used to develop distance weighted 
+models to predict detected number of compounds.\
+\
+*LC_models_pred_numb.R* - develops models to predict number of detected CECs by type using developed, pasture, and cultivated crops land cover. Two methods are compared: 1) using whole watershed scale land cover percentages and 2) developing models using land cover percentages at varying distances from sampling location a.k.a. distance weighted models. \
+\
+*LC_models_pred_conc.R* - develops models to predict CECs concentrations using developed, pasture, and cultivated crops land cover. Separate models are developed for 7 compounds.\
+\
+*LC_developed_allWS_by_dist.csv; LC_crop_allWS_by_dist.csv; LC_pasture_allWS_by_dist.csv; LC_agr_allWS_by_dist.csv* - datasets with developed, agricultural, pasture, and cultivated crops land cover percentages at different distances from sampling locations.
+
 # Spatial Analysis
 
 Spatial analysis can be an essential tool to evaluate non-point sources of CECs, as CECs are often applied with unknown rates, timing, and frequency, and transported 
