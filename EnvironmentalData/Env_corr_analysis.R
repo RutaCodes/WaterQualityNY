@@ -95,7 +95,7 @@ corrplot(rcor_CEC_sites_spear$r,tl.col = 'black')
 
 #Replacing NAs with 0s and comparing averages
 Site_aver_DF = Site_aver
-Site_aver_DF[is.na(Site_aver_DF)] = 0
+Site_aver_DF[Site_aver_DF == "NaN"] = 0
 
 CEC_sites_DF_trasf=t(Site_aver_DF)
 rcor_CEC_sites_DF_spear=rcorr(as.matrix(CEC_sites_DF_trasf),type = c("spearman"))
