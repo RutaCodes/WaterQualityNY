@@ -1,7 +1,7 @@
 #Ruta Basijokaite
 #----------------
 #This code analyzes correlation between detected compound concentrations and environmental conditions
-#It also analyzes correlations among sites 
+#It also analyzes correlations between sites and average site compound concentrations
 #----------------
 
 #Loading libraries
@@ -19,7 +19,7 @@ colnames(CEC_use_info)[3] = 'Det.Freq.'
 colnames(CEC_use_info)
 
 #-------------
-### Preparing CEC data
+### PREPARING CEC DATA
 
 #Have row names as sites - otherwise in corrplot labels will just be numbers; Remove dates
 CEC_aver_comp = as.matrix(CEC_aver[,3:dim(CEC_aver)[2]])
@@ -39,9 +39,9 @@ Which_comp_high = CEC_use_info$Name[Which_high]
 Conc_high = CEC_aver_comp[,Which_high]
 
 #---------------
-### Correlations between environmental variables and compound concentrations 
+### CORRELATIONS between environmental variables and compound concentrations 
 
-#gives correlation between matrix itself and other variable (interested only in upper right quadrant)
+#Gives correlation between matrix itself and other variable (interested only in upper right quadrant)
 rcor_vals_clim=rcorr(as.matrix(cbind(Conc_high,Climate_var[,3:14])))
 corrplot(rcor_vals_clim$r,tl.col = 'black')
 #Therefore, it is more convenient to use 'cor' function
@@ -67,8 +67,8 @@ corrplot(cor_mat_clim_pair,tl.col = 'black',is.corr = FALSE,col.lim = c(-0.5,0.5
 
 #Correlation results in this case highly depend on 'use method chosen', since dataset has a lot of NA values
 
-#-----------------------------------------
-#Could add correlation between sites (not samples) that come from 17 highest detected compounds
+#---------------
+### CORRELATIONS between sites and average compoud concentrations 
 
 #First, fix site names
 CEC_aver[37:38,1] = CEC_aver[39,1] #Fixing dual names for Ninemile creek Lakeland
