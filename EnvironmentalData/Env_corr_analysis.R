@@ -81,9 +81,11 @@ write.table(CEC_aver,file="CEC_aver_dataset.csv",sep=",",row.names=F,col.names=T
 
 WS_names = as.character(unique(CEC_aver$Site))
 Site_aver = matrix(NA, length(WS_names),dim(CEC_aver)[2]-2) #no need for dates
-#calculating average concentration of each compound
+#Calculating average concentration of each compound
 for (i in seq(from=1,to=length(WS_names))){
   rows = which(CEC_aver$Site == WS_names[i])
+  #When lapply is used, it returns list format. To assign results from lapply
+  #to a variable, first list needs to be converted to numeric data type using as.numeric
   Site_aver[i,] = as.numeric(lapply(CEC_aver[rows,-c(1,2)],mean,na.rm=T))
 }
 row.names(Site_aver) = substring(WS_names,1,5) #shorten site names as they will be used as labels for correlation plot
@@ -95,6 +97,7 @@ corrplot(rcor_CEC_sites_spear$r,tl.col = 'black')
 
 #Replacing NAs with 0s and comparing averages
 Site_aver_DF = Site_aver
+#After converting from list to numeric, NA values become NaN
 Site_aver_DF[Site_aver_DF == "NaN"] = 0
 
 CEC_sites_DF_trasf=t(Site_aver_DF)
