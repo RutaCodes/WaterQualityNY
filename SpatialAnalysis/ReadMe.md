@@ -35,7 +35,7 @@ same procedure to assess empirical relationships between incremented land cover 
 that exhibited r2 values exceeding 0.3 were reported in this study, to focus on the compounds that show the strongest empirical relationships with watershed land cover.
 
 \
-References: \
+**References:** \
 -Kiesling, R. L., Elliott, S. M., Kammel, L. E., Choy, S. J., Hummel, S. L. (2019). Predicting the occurrence of chemicals of emerging concern in surface water and sediment across the U.S. portion of the Great Lakes Basin. Sci. Total Environ. 651, 838 – 850. https://doi.org/10.1016/j.scitotenv.2018.09.201 \
 -U.S. Geological Survey, (2016). The StreamStats program, online at http://streamstats.usgs.gov, accessed on September 27, 2020 \
 -Jin, S., Homer, C.G., Yang, L., Danielson, P., Dewitz, J., Li, C., Zhu, Z., Xian, G., Howard, D. (2019). Overall methodology design for the United States National Land Cover Database 2016 products. Remote Sensing, 11(24); https://doi.org/10.3390/rs11242971 \
