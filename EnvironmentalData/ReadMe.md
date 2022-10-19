@@ -1,7 +1,13 @@
-*Env_corr_analysis.R* - code that analyzes correlation patterns between different environmental variables and CEC concentrations. 
+*Env_corr_analysis.R* - code that analyzes correlation patterns between different environmental variables and CEC concentrations. \
+\
 *Env_data_analysis.R* - code that processes environemntal variables and calculates different averages to approximate immediate and longer term climate conditions, as
 CECs remain in the system for multiple days. \
-*CEC_aver_dataset.csv* - contaminant concentration values (will be added after this work is published).
+\
+*CEC_aver_dataset.csv* - contaminant concentration values (will be added after this work is published).\
+\
+*CEC_use_info_dataset.csv* - information about contaminants found in samples.\
+\
+*Climate_var.csv* - climate and hydrologic metrics 
 
 # Environmental Data
 
@@ -23,7 +29,7 @@ explain temporal CEC concentration changes.  The goal of this exercise was to be
 Relationships were quantified with the spearman rank correlation coefficient.
  
 \
-References:\
+**References:**\
 -Thornton, P.E., Running, S.W., White, M.A. 1997. Generating surfaces of daily meteorological variables over large regions of complex terrain. Journal of Hydrology 190: 214 - 251. https://doi.org/10.1016/S0022-1694(96)03128-9 \
 -Thornton, P. E., R. Shrestha, M. Thornton, S.-C. Kao, Y. Wei, and B. E. Wilson. 2021. Gridded daily weather data for North America with comprehensive uncertainty 
 quantification. Scientific Data 8. https://doi.org/10.1038/s41597-021-00973-0 \
