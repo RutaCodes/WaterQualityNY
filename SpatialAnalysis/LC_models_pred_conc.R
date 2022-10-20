@@ -91,6 +91,7 @@ Comp_to_mod = as.character(Freq_CECs[,1]) #all compounds names that were in 75% 
 Dist_seq = seq(from=0.3, to=9.7, by=0.1)
 
 #Changing site order in Site_conc_aver and Site_conc_aver_NA to match site order in land cover variables
+Ord = 0
 for(i in seq(1,length(Perc_devel_allWS_names_sh))) {Ord[i] = which(Perc_devel_allWS_names_sh[i] == rownames(Site_conc_aver))}
 #Changing order
 Site_conc_aver_ord = Site_conc_aver[Ord,]
