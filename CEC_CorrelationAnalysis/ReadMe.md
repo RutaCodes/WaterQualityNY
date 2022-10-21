@@ -1,3 +1,9 @@
+*CEC_corr_analysis.R* - code that analyzes correlation patterns among samples as well as detected compounds.
+
+*CEC_use_info_dataset.csv* - information about contaminants that were detected in samples.
+
+Dataset with detected concentration values will be shared after this project is published.
+
 # Correlation Analysis
 
 The spearman rank correlation coefficient (rho) was used to analyze monotonicity of observed changes and quantify similarity in CEC occurrence patterns. Spearman rank 
