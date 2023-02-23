@@ -1,4 +1,4 @@
-# ANALYZING CONTAMINANTS OF EMERGING CONCERN (CEC)
+# ANALYZING CONTAMINANTS OF EMERGING CONCERN (CECs)
 
 **Environmental and Spatial Variables Influencing Contaminants of Emerging Concern in Watersheds Across Central NY**
 
